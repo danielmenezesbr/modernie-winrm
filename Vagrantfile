@@ -1,6 +1,13 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+##
+# If you copy this file, dont't delete this comment.
+# This Vagrantfile was created by Daniel Menezes:
+#   https://github.com/danielmenezesbr/modernie-winrm
+#   E-mail: dnaiel at gmail dot com
+##
+
 require 'rubygems'
 require 'net/ssh'
 
