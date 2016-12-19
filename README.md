@@ -26,5 +26,5 @@ First time you need to execute "vagrant up" twice.
 vagrant up && vagrant up
 ```
 # Demo
-[video]
+![](https://github.com/danielmenezesbr/modernie-winrm/blob/master/docs/demo.gif?raw=true)
 [screenshots]
