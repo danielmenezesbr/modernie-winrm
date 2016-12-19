@@ -27,4 +27,9 @@ vagrant up && vagrant up
 ```
 # Demo
 ![](https://github.com/danielmenezesbr/modernie-winrm/blob/master/docs/demo.gif?raw=true)
-[screenshots]
+
+# Screenshots
+Configuration changed after provisionion.
+![Network Category](https://github.com/danielmenezesbr/modernie-winrm/blob/master/docs/network_category.png?raw=true)
+![Firewall Status](https://github.com/danielmenezesbr/modernie-winrm/blob/master/docs/firewall1.png?raw=true)
+![WinRM](https://github.com/danielmenezesbr/modernie-winrm/blob/master/docs/firewall2.png?raw=true)
