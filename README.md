@@ -30,6 +30,12 @@ vagrant up && vagrant up
 
 # Screenshots
 Configuration changed after provisionion.
+
+Network location type:
 ![Network Category](https://github.com/danielmenezesbr/modernie-winrm/blob/master/docs/network_category.png?raw=true)
+
+Firewall status
 ![Firewall Status](https://github.com/danielmenezesbr/modernie-winrm/blob/master/docs/firewall1.png?raw=true)
+
+WinRM
 ![WinRM](https://github.com/danielmenezesbr/modernie-winrm/blob/master/docs/firewall2.png?raw=true)
