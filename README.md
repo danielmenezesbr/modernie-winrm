@@ -1,6 +1,8 @@
 # modernie-winrm
 This Vagrantfile is able to configure WinRM automatically. It was tested only Win7-IE11 box provider by [Microsoft](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
 
+<a href='https://pledgie.com/campaigns/33109'><img alt='Click here to lend your support to: modernie-winrm and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/33109.png?skin_name=chrome' border='0' ></a>
+
 # Instalation
 ```
 mkdir c:\mybox && cd c:\mybox
