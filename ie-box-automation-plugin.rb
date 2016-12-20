@@ -14,12 +14,14 @@ require 'net/ssh'
 # TODO
 # ====
 #   Uses config.ssh in Net::SSH.start
-#   use compacted version of Akagi32 (needs unzip) with password
 #   test in win8/10
-#   add logic as plugin
 #   add activate (view desktop information)
-#   move SeleniumServer-node to other project
 
+
+# Function to check whether VM was already provisioned
+def provisioned?(vm_name='default', provider='virtualbox')
+  File.exist?(".vagrant/machines/#{vm_name}/#{provider}/action_provision")
+end
 
 module LocalCommand
 
@@ -70,7 +72,7 @@ module LocalCommand
                         sleep(1)
                     rescue Exception => e
                         $done = true
-                        puts 'SSH disconnected'
+                        puts '.'
                     end
                 end
 
@@ -86,21 +88,36 @@ module LocalCommand
                         sleep(1)
                     end
                 end
+                puts '.'
 
-                # shutdown machine
+=begin
+                puts "Removing shortcut (ConfigWinRM.lnk)..."
+                $done = false;
+                while !$done do
+                    printf '.'
+                    cmd = %q{if [ -f '/cygdrive/c/Users/IEUser/winrm_ok' ];
+then
+   echo "true"
+else
+   echo "false"
+fi}
+                    res = ssh.exec!(cmd)
+                    if res.include? "true"
+                        $done = true
+                    else
+                        sleep(1)
+                    end
+                end
+                puts "Removing link..."
+                ssh.exec!("rm -rf \"/cygdrive/c/Users/IEUser/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/ConfigWinRM.lnk\"")
+=end
+                puts 'Shutdown guest machine... Next command should be vagrant up'
                 ssh.exec!("shutdown -t 0 -s -f")
 
-                # TODO: remove shortcut
-
                 ssh.close
-            rescue
-                puts "Unable to connect to #{@hostname} using #{@username}/#{@password}"
+            rescue Exception => e
+                puts "uncaught #{e} exception while handling connection: #{e.message}"
             end
         end
     end
-end
-
-# Function to check whether VM was already provisioned
-def provisioned?(vm_name='default', provider='virtualbox')
-  File.exist?(".vagrant/machines/#{vm_name}/#{provider}/action_provision")
 end

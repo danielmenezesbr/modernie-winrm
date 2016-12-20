@@ -16,6 +16,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.box = "microsoft.ie/ie11.win7"
   config.vm.box_url = "file://IE11 - Win7.box"
+  config.vm.boot_timeout = 500
 
   config.vm.guest = :windows
 
