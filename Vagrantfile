@@ -16,14 +16,13 @@ Vagrant.configure("2") do |config|
 
   config.vm.box = "microsoft.ie/ie11.win7"
   config.vm.box_url = "file://IE11 - Win7.box"
-  config.vm.boot_timeout = 500
+  config.vm.boot_timeout = 600
 
   config.vm.guest = :windows
 
   config.vm.communicator = :winrm       if provisioned?
   config.winrm.username = "IEUser"      if provisioned?
   config.winrm.password = "Passw0rd!"   if provisioned?
-  config.vm.synced_folder "./ExtraFolder", "c:/ExtraFolder", create: false  if provisioned?
 
   config.ssh.username = "IEUser"
   config.ssh.password = "Passw0rd!"
@@ -31,7 +30,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.box_check_update = false
 
-  config.vm.synced_folder ".", "/vagrant", disabled: true       if not provisioned?
+  config.vm.synced_folder ".", "/vagrant", disabled: true                     if not provisioned?
+  config.vm.synced_folder "./ExtraFolder", "c:/ExtraFolder", create: false    if provisioned?
 
   config.vm.provider "virtualbox" do |vb|
      # Display the VirtualBox GUI when booting the machine
@@ -42,5 +42,5 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.provision "file", source: "./tools", destination: "c:/users/IEUser"
-  config.vm.provision "list-files", type: "local_shell", command: "dir"
+  config.vm.provision "winrm", type: "ie_box_automation"
 end

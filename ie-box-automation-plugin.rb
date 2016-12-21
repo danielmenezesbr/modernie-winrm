@@ -16,6 +16,7 @@ require 'net/ssh'
 #   Uses config.ssh in Net::SSH.start
 #   test in win8/10
 #   add activate (view desktop information)
+#   use logger for debug
 
 
 # Function to check whether VM was already provisioned
@@ -26,17 +27,17 @@ end
 module LocalCommand
 
     class Config < Vagrant.plugin("2", :config)
-        attr_accessor :command
+        #attr_accessor :command
     end
 
     class MyPlugin < Vagrant.plugin("2")
-        name "local_shell"
+        name "ie_box_automation"
 
-        config(:local_shell, :provisioner) do
+        config(:ie_box_automation, :provisioner) do
             Config
         end
 
-        provisioner(:local_shell) do
+        provisioner(:ie_box_automation) do
             Provisioner
         end
     end
@@ -49,16 +50,23 @@ module LocalCommand
 
                 puts "Disabling firewall..."
                 res = ssh.exec!("NetSh Advfirewall set allprofiles state off")
+                #for debug
                 #puts res
 
-                puts "Changing category of network..."
+                puts "Changing network location..."
                 res = ssh.exec!("./tools/NLMtool_staticlib.exe -setcategory private")
+                #for debug
                 #puts res
 
                 puts "Creating link to config WinRM on Startup..."
                 res = ssh.exec!("mv ./tools/ConfigWinRM.lnk \"/cygdrive/c/Users/IEUser/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup\"")
-                puts res
+                #for debug
+                #puts res
 
+                puts 'Shutting down guest machine... next command should be vagrant up'
+                ssh.exec!("shutdown -t 0 -s -f")
+
+=begin
                 puts "Restarting machine..."
                 res = ssh.exec!("shutdown -t 0 -r -f")
 
@@ -68,6 +76,7 @@ module LocalCommand
                     begin
                         printf '.'
                         res = ssh.exec!("pwd")
+                        #for debug
                         #puts res
                         sleep(1)
                     rescue Exception => e
@@ -89,7 +98,7 @@ module LocalCommand
                     end
                 end
                 puts '.'
-
+=end
 =begin
                 puts "Removing shortcut (ConfigWinRM.lnk)..."
                 $done = false;
@@ -111,9 +120,6 @@ fi}
                 puts "Removing link..."
                 ssh.exec!("rm -rf \"/cygdrive/c/Users/IEUser/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/ConfigWinRM.lnk\"")
 =end
-                puts 'Shutdown guest machine... Next command should be vagrant up'
-                ssh.exec!("shutdown -t 0 -s -f")
-
                 ssh.close
             rescue Exception => e
                 puts "uncaught #{e} exception while handling connection: #{e.message}"
