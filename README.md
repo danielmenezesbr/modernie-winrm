@@ -1,7 +1,19 @@
 # modernie-winrm
-This Vagrantfile is able to configure WinRM automatically. It was tested only Win7-IE11 box provider by [Microsoft](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
+This Vagrantfile is able to configure WinRM automatically on the box distributed by [Microsoft](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/). In other words this Vagrantfile is able to:
+* Disable firewall (the box distributed by Microsoft is configured with firewall enabled by default);
+* Change Network location type to "Work network" (the box distrubuted by Microsoft is configured as "Public network" by default);
+* Enable WinRM.
+
+It was tested only Win7-IE11 box provider by [Microsoft](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
 
 <a href='https://pledgie.com/campaigns/33109'><img alt='Click here to lend your support to: modernie-winrm and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/33109.png?skin_name=chrome' border='0' ></a>
+
+# Changelog
+**v0.0.2**
+* Refactoring plugin code.
+
+**v0.0.1**
+* First version.
 
 # Instalation
 ```
