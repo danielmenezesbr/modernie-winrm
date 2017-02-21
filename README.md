@@ -43,7 +43,7 @@ vagrant up && vagrant up
 [Show animated gif](https://github.com/danielmenezesbr/modernie-winrm/blob/master/docs/demo.gif?raw=true)
 
 # Screenshots
-Configuration changed after provisionion.
+Configuration changed after provisioning.
 
 Network location type:
 
