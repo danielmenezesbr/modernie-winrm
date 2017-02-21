@@ -1,6 +1,8 @@
 # modernie-winrm
 This Vagrantfile is able to configure WinRM automatically. It was tested only Win7-IE11 box provider by [Microsoft](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
 
+<a href='https://pledgie.com/campaigns/33109'><img alt='Click here to lend your support to: modernie-winrm and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/33109.png?skin_name=chrome' border='0' ></a>
+
 # Instalation
 ```
 mkdir c:\mybox && cd c:\mybox
@@ -26,10 +28,19 @@ First time you need to execute "vagrant up" twice.
 vagrant up && vagrant up
 ```
 # Demo
-![](https://github.com/danielmenezesbr/modernie-winrm/blob/master/docs/demo.gif?raw=true)
+[Show animated gif](https://github.com/danielmenezesbr/modernie-winrm/blob/master/docs/demo.gif?raw=true)
 
 # Screenshots
 Configuration changed after provisionion.
-![Network Category](https://github.com/danielmenezesbr/modernie-winrm/blob/master/docs/network_category.png?raw=true)
-![Firewall Status](https://github.com/danielmenezesbr/modernie-winrm/blob/master/docs/firewall1.png?raw=true)
-![WinRM](https://github.com/danielmenezesbr/modernie-winrm/blob/master/docs/firewall2.png?raw=true)
+
+Network location type:
+
+![](https://github.com/danielmenezesbr/modernie-winrm/blob/master/docs/network_category.png?raw=true)
+
+Firewall status:
+
+![](https://github.com/danielmenezesbr/modernie-winrm/blob/master/docs/firewall1.png?raw=true)
+
+WinRM:
+
+![](https://github.com/danielmenezesbr/modernie-winrm/blob/master/docs/firewall2.png?raw=true)
