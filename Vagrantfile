@@ -8,6 +8,10 @@
 #   E-mail: daniel at gmail dot com
 ##
 
+##
+# Version: 0.0.2
+##
+
 
 require_relative 'ie-box-automation-plugin.rb'
 
