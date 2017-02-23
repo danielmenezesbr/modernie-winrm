@@ -5,7 +5,7 @@
 # If you copy this file, dont't delete this comment.
 # This Vagrantfile was created by Daniel Menezes:
 #   https://github.com/danielmenezesbr/modernie-winrm
-#   E-mail: daniel at gmail dot com
+#   E-mail: danielmenezes at gmail dot com
 ##
 
 require 'rubygems'
