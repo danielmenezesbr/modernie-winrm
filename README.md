@@ -4,11 +4,14 @@ This Vagrantfile is able to configure WinRM automatically on the box distributed
 * Change Network location type to "Work network" (the box distributed by Microsoft is configured as "Public network" by default);
 * Enable WinRM.
 
-It was tested only Win7-IE11 box provider by [Microsoft](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
+It was tested only Win10-Stable-MSEdge and Win7-IE11 box provider by [Microsoft](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
 
 <a href='https://pledgie.com/campaigns/33109'><img alt='Click here to lend your support to: modernie-winrm and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/33109.png?skin_name=chrome' border='0' ></a>
 
 # Changelog
+**v0.0.3**
+* Enable support for Win10-Stable-MSEdge.
+
 **v0.0.2**
 * Refactoring plugin code.
 
