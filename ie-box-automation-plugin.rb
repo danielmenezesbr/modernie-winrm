@@ -57,69 +57,42 @@ module LocalCommand
                 res = ssh.exec!("./tools/NLMtool_staticlib.exe -setcategory private")
                 #for debug
                 #puts res
+                
+                puts "Turn off User Account Control..."
+                res = ssh.exec!("cmd /c \"reg add HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v EnableLUA /d 0 /t REG_DWORD /f /reg:64\"")
 
                 puts "Creating link to config WinRM on Startup..."
                 res = ssh.exec!("mv ./tools/ConfigWinRM.lnk \"/cygdrive/c/Users/IEUser/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup\"")
                 #for debug
                 #puts res
 
-                puts 'Shutting down guest machine... next command should be vagrant up'
+                puts 'Shutting down guest machine...'
                 ssh.exec!("shutdown -t 0 -s -f")
-
-=begin
-                puts "Restarting machine..."
-                res = ssh.exec!("shutdown -t 0 -r -f")
-
-                puts 'After shutdown...'
+                
                 $done = false;
                 while !$done do
                     begin
-                        printf '.'
-                        res = ssh.exec!("pwd")
-                        #for debug
-                        #puts res
-                        sleep(1)
+                        result = Vagrant::Util::Subprocess.execute(
+                            'vagrant',
+                            'status',
+                            :notify => [:stdout, :stderr],
+                            #:workdir => config.cwd,
+                            :env => {PATH: ENV["VAGRANT_OLD_ENV_PATH"]},
+                        ) do |io_name, data|
+                            #@machine.env.ui.debug "[#{io_name}] #{data}"
+                            if data.include? "The VM is running"
+                                puts 'The VM is running... Waiting shutdown...'
+                            else
+                                $done = true
+                                puts 'The VM is not running. Next command should be vagrant up...'
+                            end
+                        end
+                        sleep(50)
                     rescue Exception => e
                         $done = true
-                        puts '.'
+                        puts 'Exception...'
                     end
                 end
-
-                puts 'Wait for openssh...'
-                $done = false;
-                while !$done do
-                    begin
-                        printf '.'
-                        ssh = Net::SSH.start("localhost", "IEUser", :password => "Passw0rd!", :port => 2222)
-                        #puts res
-                        $done = true
-                    rescue
-                        sleep(1)
-                    end
-                end
-                puts '.'
-=end
-=begin
-                puts "Removing shortcut (ConfigWinRM.lnk)..."
-                $done = false;
-                while !$done do
-                    printf '.'
-                    cmd = %q{if [ -f '/cygdrive/c/Users/IEUser/winrm_ok' ];
-then
-   echo "true"
-else
-   echo "false"
-fi}
-                    res = ssh.exec!(cmd)
-                    if res.include? "true"
-                        $done = true
-                    else
-                        sleep(1)
-                    end
-                end
-                puts "Removing link..."
-                ssh.exec!("rm -rf \"/cygdrive/c/Users/IEUser/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/ConfigWinRM.lnk\"")
-=end
                 ssh.close
             rescue Exception => e
                 puts "uncaught #{e} exception while handling connection: #{e.message}"

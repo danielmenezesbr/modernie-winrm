@@ -1,2 +1,4 @@
 # Vagrant stuff
 /.vagrant
+/.idea
+dev-msedge.box
