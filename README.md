@@ -27,7 +27,7 @@ mkdir c:\mybox && cd c:\mybox
 git clone https://github.com/danielmenezesbr/modernie-winrm.git .
 ```
 
-For IE11-Win7 download [the box](http://aka.ms/ie11.win7.vagrant) and unzip it into c:\mybox. If you have curl and [7z](http://www.7-zip.org), you can do:
+For **IE11-Win7** download [the box](http://aka.ms/ie11.win7.vagrant) and unzip it into c:\mybox. If you have curl and [7z](http://www.7-zip.org), you can do:
 ```
 curl -LOk http://aka.ms/ie11.win7.vagrant
 ```
@@ -36,7 +36,7 @@ curl -LOk http://aka.ms/ie11.win7.vagrant
 7z e ie11.win7.vagrant
 ```
 
-For MSEdge-Win10-Stable download [the box](http://aka.ms/ie11.win7.vagrant) and unzip it into c:\mybox. If you have curl and [7z](http://www.7-zip.org), you can do:
+For **MSEdge-Win10-Stable** download [the box](http://aka.ms/ie11.win7.vagrant) and unzip it into c:\mybox. If you have curl and [7z](http://www.7-zip.org), you can do:
 ```
 curl -LOk http://aka.ms/msedge.win10.vagrant
 ```
