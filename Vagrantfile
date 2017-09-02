@@ -9,7 +9,7 @@
 ##
 
 ##
-# Version: 0.0.3
+# Version: 0.0.4
 ##
 
 
@@ -41,6 +41,7 @@ Vagrant.configure("2") do |config|
   config.ssh.username = "IEUser"
   config.ssh.password = "Passw0rd!"
   config.ssh.insert_key = false
+  config.vbguest.auto_update = false
 
   config.vm.box_check_update = false
 
@@ -55,6 +56,9 @@ Vagrant.configure("2") do |config|
      vb.memory = "2048"
   end
 
-  config.vm.provision "file", source: "./tools", destination: "c:/users/IEUser"
+
+  config.vm.provision "file", source: "./tools/7z.exe", destination: "c:/users/IEUser/7z.exe"
+  config.vm.provision "file", source: "./tools/7z.dll", destination: "c:/users/IEUser/7z.dll"
+  config.vm.provision "file", source: "./tools/tools.zip", destination: "c:/users/IEUser/tools.zip"
   config.vm.provision "winrm", type: "ie_box_automation"
 end
