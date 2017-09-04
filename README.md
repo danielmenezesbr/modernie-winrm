@@ -8,15 +8,8 @@ It was tested only Win10-Stable-MSEdge and Win7-IE11 box provided by [Microsoft]
 
 <a href='https://pledgie.com/campaigns/33109'><img alt='Click here to lend your support to: modernie-winrm and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/33109.png?skin_name=chrome' border='0' ></a>
 
-# Changelog
-**v0.0.3**
-* Enable support for Win10-Stable-MSEdge.
-
-**v0.0.2**
-* Refactoring plugin code.
-
-**v0.0.1**
-* First version.
+# Releases
+[Check here!](https://github.com/danielmenezesbr/modernie-winrm/releases)
 
 # Instalation
 ```
