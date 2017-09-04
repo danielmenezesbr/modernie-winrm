@@ -8,9 +8,6 @@ It was tested only Win10-Stable-MSEdge and Win7-IE11 box provided by [Microsoft]
 
 <a href='https://pledgie.com/campaigns/33109'><img alt='Click here to lend your support to: modernie-winrm and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/33109.png?skin_name=chrome' border='0' ></a>
 
-# Releases
-[Check here!](https://github.com/danielmenezesbr/modernie-winrm/releases)
-
 # Instalation
 ```
 mkdir c:\mybox && cd c:\mybox
@@ -65,3 +62,6 @@ Firewall status:
 WinRM:
 
 ![](https://github.com/danielmenezesbr/modernie-winrm/blob/master/docs/firewall2.png?raw=true)
+
+# Releases
+[Check here!](https://github.com/danielmenezesbr/modernie-winrm/releases)
