@@ -10,6 +10,10 @@ It was tested only Win10-Stable-MSEdge and Win7-IE11 box provided by [Microsoft]
 
 # Instalation
 ```
+vagrant plugin install vagrant-vbguest
+```
+
+```
 mkdir c:\mybox && cd c:\mybox
 ```
 
